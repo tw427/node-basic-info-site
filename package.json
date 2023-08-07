@@ -1,0 +1,14 @@
+{
+  "name": "basic-info-site",
+  "version": "1.0.0",
+  "description": "Basic Informational Site with NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js"
+  },
+  "author": "TW427",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
