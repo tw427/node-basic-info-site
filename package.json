@@ -4,7 +4,7 @@
   "description": "Basic Informational Site with NodeJS",
   "main": "index.js",
   "scripts": {
-    "nodemon": "./node_modules/nodemon/bin/nodemon.js"
+    "devStart": "nodemon index.js"
   },
   "author": "TW427",
   "license": "ISC",

@@ -1,32 +1,45 @@
-const http = require("http");
-const url = require("url");
-const fs = require("fs");
+const express = require("express");
+const app = express();
 
-const port = 8080;
+const pug = require("pug");
 
-const server = http.createServer((req, res) => {
-  let q = url.parse(req.url, true);
-  let fileName = `.${q.pathname}.html`;
+app.set("view engine", "pug");
 
-  if (q.pathname === "/") {
-    fileName = "./index.html";
-  }
-
-  fs.readFile(`${fileName}`, (err, data) => {
-    if (err) {
-      fs.readFile("./404.html", (err, data) => {
-        res.writeHead(404, { "Content-Type": "text/html" });
-        res.write(data);
-        return res.end();
-      });
-    } else {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      return res.end();
-    }
-  });
+app.get("/", (req, res) => {
+  res.render("index", { message: "Hello Pug!" });
 });
 
-server.listen(port, () => {
-  console.log(`Server listening to ${port}`);
-});
+app.listen(3000);
+
+// const http = require("http");
+// const url = require("url");
+// const fs = require("fs");
+
+// const port = 8080;
+
+// const server = http.createServer((req, res) => {
+//   let q = url.parse(req.url, true);
+//   let fileName = `.${q.pathname}.html`;
+
+//   if (q.pathname === "/") {
+//     fileName = "./index.html";
+//   }
+
+//   fs.readFile(`${fileName}`, (err, data) => {
+//     if (err) {
+//       fs.readFile("./404.html", (err, data) => {
+//         res.writeHead(404, { "Content-Type": "text/html" });
+//         res.write(data);
+//         return res.end();
+//       });
+//     } else {
+//       res.writeHead(200, { "Content-Type": "text/html" });
+//       res.write(data);
+//       return res.end();
+//     }
+//   });
+// });
+
+// server.listen(port, () => {
+//   console.log(`Server listening to ${port}`);
+// });
