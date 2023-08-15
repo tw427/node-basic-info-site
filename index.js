@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const aboutRouter = require("./routes/about");
+const contactRouter = require("./routes/contact-me");
 
 const pug = require("pug");
 
@@ -11,9 +12,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/about", aboutRouter);
+app.use("/contact-me", contactRouter);
 
-app.get("/contact-me", (req, res) => {
-  res.render("contact-me");
+app.listen(3000, () => {
+  console.log("Server is running on port 3000!");
 });
-
-app.listen(3000);
