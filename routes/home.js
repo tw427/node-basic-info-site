@@ -4,7 +4,7 @@ const home = express.Router();
 const array = [];
 
 home.get("/", (req, res) => {
-  res.render("index", { message: "Hello Pug!" });
+  res.json({ name: "frodo" });
 });
 
 home.get("/test", (req, res) => res.json({ array }));
