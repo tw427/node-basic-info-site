@@ -3,13 +3,12 @@ const app = express();
 const aboutRouter = require("./routes/about");
 const contactRouter = require("./routes/contact-me");
 const pug = require("pug");
+const homeRouter = require("./routes/home.js");
 
 app.set("view engine", "pug");
 
-app.get("/", (req, res) => {
-  res.render("index", { message: "Hello Pug!" });
-});
-
+app.use("/", homeRouter);
+app.use(express.urlencoded({ extended: false }));
 app.use("/about", aboutRouter);
 app.use("/contact-me", contactRouter);
 
